@@ -1,8 +1,7 @@
-import Users from "./components/Users";
+import User from "./components/Users/User";
+import {useState} from "react";
 
-
-export default function App() {
-    let users = [
+let users = [
         {name: 'vasya', age: 31, isMarried: false},
         {name: 'petya', age: 30, isMarried: true},
         {name: 'kolya', age: 29, isMarried: true},
@@ -15,13 +14,27 @@ export default function App() {
         {name: 'olya', age: 31, isMarried: false},
         {name: 'max', age: 31, isMarried: true}
     ]
+export default function App() {
+    let [userInfo, setUsers] = useState(users)
+
+    const deleteUsers = () => {
+        users.pop()
+        setUsers([...userInfo])
+
+
+    };
 
     return (
         <div>
             {
-                users.map((value, index) => <h3 key={index}>{value.name} - {value.age} - {value.isMarried.toString()}</h3>)
-
+                users.map((value, index) =>
+                    <User key = {index}
+                          {...value}
+                    />
+                )
             }
+
+            <button onClick={deleteUsers}>delete user</button>
         </div>
-    )
+    );
 }
