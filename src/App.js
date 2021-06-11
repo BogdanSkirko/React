@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Users from "./components/charactherComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <div>
+        <Users name={`Bohdan`} age={30} color={`black`}/>
+            <Users name={`Valentyna`} age={64} color={`black`}/>
+            <Users name={`Ann`} age={33} color={`brown`}/>
+            <Users name={`Dmytro`} age={15} color={`white`}/>
+            <Users name={`Yaroslav`} age={69} color={`black`}/>
+
+        </div>
+
+    );
 }
 
-export default App;
+
