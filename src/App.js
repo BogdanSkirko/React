@@ -10,7 +10,7 @@ export default function App() {
                   classes={[`target`, `point`]}/>
             <Users/>
             <Menu pages={[`about`, `team`]}
-                  classes={[`dsd`, `dsad`].join(` `)}/>
+                  classes={[`firstClass`, `secondClass`].join(` `)}/>
         </div>
 
     );
