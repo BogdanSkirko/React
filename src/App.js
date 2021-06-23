@@ -1,8 +1,11 @@
-import Commentar from "./Comments/Comment/Comentar";
+import Users from "./components/Users/Users";
+import Posts from "./components/Users/Posts";
+
 export default function App() {
     return (
         <div>
-           <Commentar/>
+            <Users />
+            {/*<Posts/>*/}
         </div>
 
     );
