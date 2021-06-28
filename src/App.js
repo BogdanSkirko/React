@@ -3,8 +3,9 @@ import {useEffect, useState} from "react";
 import Users from "./components/Users/Users";
 
 export default function App() {
-    let [user, setUser] = useState(null)
-    let [posts, setPosts] = useState(null)
+    const [user, setUser] = useState(null)
+    const [posts, setPosts] = useState(null)
+    const [getPost, setGetPost] = useState(null)
     const userFunction = (id) => {
         getUser(id).then(value => setUser(value.data))
     }

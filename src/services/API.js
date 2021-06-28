@@ -8,4 +8,5 @@ axiosInctance('/users')
 const getUsers = () => axiosInctance('/users')
 const getUser = (id) => axiosInctance('/users/' + id)
 const getPosts = (id) => axiosInctance('/users/' + id + '/posts')
-export {getUsers,getUser,getPosts}
+const getComments = (id) => axiosInctance('/posts/' + id +'/comments')
+export {getUsers,getUser,getPosts,getComments}
