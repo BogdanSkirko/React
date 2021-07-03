@@ -30,8 +30,6 @@
 //
 //     );
 // }
-
-
 // =====================================
 // export default function User({item,fcFromUsersToUser}) {
 //
@@ -62,19 +60,22 @@ import Post from "../Post/Post";
 
 export default function User({item,}) {
     const [userPosts, setUserPosts] = useState([])
+    const [toggle, setToggle] =useState(false)
     return (
         <div>
             <div>
                 <h2>
                 {item.id}---{item.name}---
                 <button onClick={() => {
+                    setToggle(!toggle);
                     getPosts(item.id).then(value => setUserPosts(value.data))
+
                 }}>Click for Details</button>
                     </h2>
             </div>
             <div>
             {
-               userPosts && userPosts.map(value => <Post key={value.id} item={value}/>)
+               toggle && userPosts && userPosts.map(value => <Post key={value.id} item={value}/>)
             }
             </div>
         </div>
