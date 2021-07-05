@@ -1,45 +1,15 @@
-// import {useReducer} from "react";
-//
-// function reducer(state, action) {
-//     switch (action.type) {
-//         case 'A':
-//             return {...state, a: state.a + action.payload}
-//
-//         case 'B':
-//             return {...state,b: state.b + action.payload}
-//
-//         default:
-//             return {...state}
-//
-//     }
-//
-//
-// }
-//         export default function App() {
-//         let [state, dispatch] = useReducer(reducer, {a: 0, b: 0})
-//         console.log(state)
-//         let {a, b} = state
-//         return (
-//
-//             <div>
-//                 <button onClick={() => {dispatch({type: 'A', payload: 1});}}>inc a -{a}</button>
-//                 <br/>
-//                 <button onClick={() => {dispatch({type: 'B', payload: 2});}}>inc b -{b}</button>
-//
-//             </div>
-//
-//
-//         );
-//     }
-//
-
-
+// створити посилання /users, /posts, /comments.
+// При переході на посилання відображати інформацію з jsonplaceholder про users/posts/comments відповідно до посилання за логікою.
+// Для всього використовувати окремий компонент (Users->User, Posts->Post).
+// В компоненті user та post зробити кнопки. При натисканні на які відображаються пости юзера (а в постах коментарі поста. Але не в постах юзера, а за урлою /posts)
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import Users from "./components/Users/Users";
 import Posts from "./components/Posts/Posts";
 import Comments from "./components/Comments/Comments";
 
+
 export default function App() {
+
     return (
         <Router>
             <div>
