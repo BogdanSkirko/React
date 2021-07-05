@@ -6,10 +6,16 @@ import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import Users from "./components/Users/Users";
 import Posts from "./components/Posts/Posts";
 import Comments from "./components/Comments/Comments";
+import {getPosts} from "./services/API";
+import {useState} from "react";
+import {findByAltText} from "@testing-library/react";
 
 
 export default function App() {
-
+//     const [getPost,setGetPost]=useState([])
+// const fnGetPosts = (id) => {
+//   getPosts(id).then(value => setGetPost(value.data))
+// }
     return (
         <Router>
             <div>

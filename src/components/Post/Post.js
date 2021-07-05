@@ -1,9 +1,19 @@
-export default function Post({item}) {
+import {useState} from "react";
+import {getPostsComments} from "../../services/API";
+
+export default function Post({items :{id,title}}) {
+    const [getcomments,setGetComments] = useState([])
+
     return (
 
         <div>
-            {item.userId} -- {item.id} -- {item.title} -- {item.body}
-            <button>Coments</button>
+            {id} -- {title}
+            <button onClick={() => {
+            getPostsComments(id).then(value => setGetComments(value.data))}
+            }>Coments</button>
+
+            {getcomments.map(value =><div>{value.email}</div> )}
+
         </div>
 
     );
