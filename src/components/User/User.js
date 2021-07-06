@@ -1,23 +1,18 @@
-import {getPosts} from "../../services/API";
 import {useState} from "react";
+import {getPosts} from "../../services/API";
 
-export default function User({items, id}) {
-    const [getposts, setGetPosts] = useState([])
-
+export default function User({items: {name, id}}) {
+    const [usersPosts, getUsersPosts] = useState([])
     return (
         <div>
-            {items.name}---{items.id}
+            {id}--{name}
+
             <button onClick={() => {
-                getPosts(id).then(value => setGetPosts(value.data))}}>Posts
-            </button>
-
-
-                    {
-                        getposts.map(value =>  <h4>{value.userId}  {value.title}</h4>)
-                    }
-
-
+                getPosts(id).then(value => getUsersPosts(value.data))}
+            }>UsersPosts</button>
+            {usersPosts.map(value => <h3>{value.id} {value.title} {value.body}</h3>)}
         </div>
-    )
+
+    );
 }
 
