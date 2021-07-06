@@ -12,10 +12,7 @@ import {findByAltText} from "@testing-library/react";
 
 
 export default function App() {
-//     const [getPost,setGetPost]=useState([])
-// const fnGetPosts = (id) => {
-//   getPosts(id).then(value => setGetPost(value.data))
-// }
+
     return (
         <Router>
             <div>

@@ -12,7 +12,7 @@ export default function User({items : {id, name}}) {
             </button>
 
                     {
-                        getposts.map(value => <h4>{value.userId}  {value.title}</h4>)
+                        getposts.map(value => <h4>{value.id}  {value.body}  {value.title}</h4>)
                     }
 
 
