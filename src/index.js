@@ -24,6 +24,11 @@ const reducer = (state = initialState,action) => {
             }
         }
 
+        case 'INPUT': {
+            return {...state , counter: {value : state.counter.value + action.payload}
+            }
+        }
+
         case 'DEC': {
             return {...state,counter: {value:state.counter.value -1
                  }

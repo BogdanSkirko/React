@@ -1,14 +1,23 @@
 import {useDispatch, useSelector} from "react-redux";
+import {useState} from "react";
 
 
 const NestedChild = () => {
     const counter = useSelector(({counter: {value}}) => value)
     const dispatch = useDispatch()
-    let input = []
+    const [inputValue, setInputValue] = useState('');
     // const inputInfo = []
     // dispatch({
     //     type: 'INC_CUSTOM'
     // })
+
+    const onChangeIUnput = ({target : {value}}) => setInputValue(value)
+
+    const inputAdd = () => {
+        dispatch({type: 'INPUT', payload: +inputValue})
+        setInputValue('')
+    }
+
  return (
     <header className="App-header">
       <h1>{counter}</h1>
@@ -24,11 +33,9 @@ const NestedChild = () => {
         dispatch({type: 'RESET'})}
         }>RESET</button>
 
-        <input/>
+        <input type={'number'} value={inputValue} onChange={onChangeIUnput} name={'numbers'}/>
 
-         <button onClick={() => {
-        dispatch({type: 'INC_CUSTOM'})}
-        }>INC_CUSTOM</button>
+         <button onClick={inputAdd}>INC_CUSTOM</button>
 
     </header>
   )
