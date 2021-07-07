@@ -51,7 +51,7 @@ import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import Users from "./Users/Users";
 import Posts from "./Posts/Posts";
 import Comments from "./Comments/Comments";
-import React, {useEffect} from "react";
+
 
 
 
@@ -60,22 +60,22 @@ export default function App() {
     return (
 
         <div>
-            <Router>
-                <div>
-                    <Link to={'/users'}>users page</Link>
-                    <br/>
-                    <Link to={'/posts'}>posts page</Link>
-                    <br/>
-                    <Link to={'/comments'}>comments page</Link>
-                    <br/>
+            {/*<Router>*/}
+            {/*    <div>*/}
+            {/*        <Link to={'/users'}>users page</Link>*/}
+            {/*        <br/>*/}
+            {/*        <Link to={'/posts'}>posts page</Link>*/}
+            {/*        <br/>*/}
+            {/*        <Link to={'/comments'}>comments page</Link>*/}
+            {/*        <br/>*/}
 
-                    <Route path={'/users'} render={() => <Users/>}/>
-                    <Route path={'/posts'} render={() => <Posts/>}/>
-                    <Route path={'/comments'} render={() => <Comments/>}/>
-                    <Route/>
+            {/*        <Route path={'/users'} render={() => <Users/>}/>*/}
+            {/*        <Route path={'/posts'} render={() => <Posts/>}/>*/}
+            {/*        <Route path={'/comments'} render={() => <Comments/>}/>*/}
+            {/*        <Route/>*/}
 
-                </div>
-            </Router>
+            {/*    </div>*/}
+            {/*</Router>*/}
         </div>
 
     );

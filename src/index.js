@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import Users from "./Users/Users";
 import Posts from "./Posts/Posts";
 import Comments from "./Comments/Comments";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 
 //
 //
@@ -56,11 +58,27 @@ import Comments from "./Comments/Comments";
 //
 //
 
+    const initialState = {
+        users : [],
+        posts : [],
+        comments: [],
+    }
+console.log(initialState)
+    const reducer = (state = initialState,action) => {
+        switch (action.type) {
+            case 'USERS': {
+                return {...state}
+            }
+        }
+            
 
-
+    }
+    const store =createStore(reducer)
 ReactDOM.render(
   <React.StrictMode>
+      <Provider store={store}>
              <App />
+          </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
