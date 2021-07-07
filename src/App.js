@@ -53,10 +53,8 @@ import Posts from "./Posts/Posts";
 import Comments from "./Comments/Comments";
 import React, {useEffect} from "react";
 
-const fetchUsers = async () => {
-    const response = await fetch(https://jsonplaceholder.typicode.com/users)
-}
-useEffect(() => {fetchUsers()},[])
+
+
 export default function App() {
 
     return (
