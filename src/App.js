@@ -45,12 +45,14 @@
 //
 //     );
 // }
-// export default App
+// export default function App()
 
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+// import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import Users from "./Users/Users";
-import Posts from "./Posts/Posts";
-import Comments from "./Comments/Comments";
+// import Posts from "./Posts/Posts";
+// import Comments from "./Comments/Comments";
+// import {useDispatch} from "react-redux";
+// import User from "./User/User";
 
 
 
@@ -76,6 +78,8 @@ export default function App() {
 
             {/*    </div>*/}
             {/*</Router>*/}
+            <Users/>
+
         </div>
 
     );
