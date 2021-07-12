@@ -1,52 +1,54 @@
-import User from "./components/Users/User";
+import {useSelector} from "react-redux";
 import {useState} from "react";
+const CreateTodoForm = ({ onSubmit }) =>{
+    const [title,setTitle] =useState('')
+    const [description,setDescription] = useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!title || !description) return;
+        onSubmit(title,description)
+}
+return (
 
-let users = [
-    {name: 'vasya', age: 31, isMarried: false},
-    {name: 'petya', age: 30, isMarried: true},
-    {name: 'kolya', age: 29, isMarried: true},
-    {name: 'olya', age: 28, isMarried: false},
-    {name: 'max', age: 30, isMarried: true},
-    {name: 'anya', age: 31, isMarried: false},
-    {name: 'oleg', age: 28, isMarried: false},
-    {name: 'andrey', age: 29, isMarried: true},
-    {name: 'masha', age: 30, isMarried: true},
-    {name: 'olya', age: 31, isMarried: false},
-    {name: 'max', age: 31, isMarried: true}
-]
+    <form onSubmit={handleSubmit}>
+        <input
+            type="text"
+            placeholder="title"
+            value={title}
+            onChange={({target:{value}}) => setTitle(value)}/>
+        <input
+            type="text"
+            placeholder= "descreption"
+            value={description}
+            onChange={({target:{value}}) => setDescription(value)}/>
+        <br/>
+        <button type={"submit"} disabled={!title || !description}>create todo</button>
+
+    </form>
+)                                            
+
+
+}
 export default function App() {
+    const store = useSelector(state => state)
+    const onTodoCreate = async (title,description) => {
+        if (!title || ~description) return;
 
-    let [count,setCounter] = useState(0)
-    let [userInfo, setUsers] = useState(users)
-    let [dec,setDec] = useState(0)
-    const increment = () => setCounter(++count)
-    const decrement = () => setDec(--dec)
-    const deleteUsers = () => {
-        users.pop()
-        setUsers([...userInfo])
-
-
-    };
-
+        const response = fetch('https://localhost:8888/create-todo',{
+            method: 'POST',
+            body: JSON.stringify({title,description}),
+            headers: {
+                'Content-type':'application/json'
+            }
+        })
+        const data = (await response).json();
+        console.log(data)
+    }
     return (
         <div>
-            <div>
-                count is {count}
-                <button onClick={increment}>increment</button>
-                   dec is {dec}
-                <button onClick={decrement}>decrement</button>
-            </div>
-            <div>
-                {
-                    users.map((value, index) =>
-                        <User key={index}
-                              {...value}
-                        />
-                    )
-                }
-
-                <button onClick={deleteUsers}>delete user</button>
-            </div>
+                <CreateTodoForm onSubmit={onTodoCreate}/>
         </div>
+
     );
 }
+
