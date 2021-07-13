@@ -1,10 +1,8 @@
-const initialState ={
+const initialState = {
     value: 0
 }
-
-
 export const counterReducer = (state = initialState,action) => {
-    switch (action.type){
+    switch (action.type) {
         default:
             return state
     }
